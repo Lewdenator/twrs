@@ -113,6 +113,7 @@ class Game:
         self.grid = Grid(height, width)
         self.x = 0
         self.y = 0
+        self.refresh_rate = 3
         self.running = True
 
     def run(self, stdscr):
@@ -122,7 +123,7 @@ class Game:
         curses.init_pair(3, curses.COLOR_BLUE, curses.COLOR_BLACK)
         curses.init_pair(4, curses.COLOR_RED, curses.COLOR_WHITE)
         curses.curs_set(0)
-        curses.halfdelay(3)  # Set non-blocking input delay to 0.3 seconds
+        curses.halfdelay(self.refresh_rate)
 
         while self.running:
             stdscr.clear()
